@@ -14,7 +14,14 @@
 6. git push -u origin main<br>
    ⚠️'-u' 옵션을 붙이면 다음 푸시부터는 `git push`만 해도 올라감
 
-`git remote remove origin`을 하면 레포를 삭제할 수 있음
+레포 삭제하기
+
+    git remote remove origin
+
+새로운 파일이 추가되지 않았을 경우 커밋하기
+
+    1. git commit -am "커밋 내용"
+    2. git push
 
 ---
 

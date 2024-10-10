@@ -1,38 +1,70 @@
-vs코드 깃허브 업로드 하는 법
+# 깃 관련 명령어
 
-git add . 
+## 로컬 프로젝트를 원격 저장소에 연결 후 푸시하는 방법(처음 올릴 때)
 
-git commit -m ""
+1. git init
 
-git push origin main
+2. git remote add origin https://github.com/{깃허브아디}/{레포주소}
 
-==================================================
-git init // 해당 폴더 (로컬 저장소)의 git 초기화 (필수)
-git remote add origin https://github.com/{nickname}/testRepo.git 
-git branch -M main 
+3. git branch -M main
+4. git add .
 
-git add . 
-git commit -m "first commit"
-git push -u origin main // 해당 명령어 입력한 후엔 git push만 해도 올라감
+5. git commit -m "first commit"
 
-git pull origin main
+6. git push -u origin main<br>
+   ⚠️'-u' 옵션을 붙이면 다음 푸시부터는 `git push`만 해도 올라감
 
-==========================================
+`git remote remove origin`을 하면 레포를 삭제할 수 있음
 
-깃허브 클론하는 법
+---
 
-git bash 들어가서
+## 브랜치 관리
 
-git clone 주소
+브랜치 확인하기
 
+     git branch
 
-새로운 브랜치 만들고 커밋하기
+브랜치 생성하고 이동
 
-git branch (브랜치 확인)
-git checkout -b new-branch-name
+     git checkout -b 브랜치명
 
--------------------------------------------------
-머지 하는 법
+브랜치 이동
 
-git merge "브랜치이름"
-ex) main 브랜치에 sub 브랜치를 머지하는 경우엔 -> git merge sub
+    git switch 브랜치명
+
+---
+
+## 원격 저장소관련
+
+### git pull origin 브랜치명
+
+원격 저장소의 변경 사항을 가져와 병합
+
+⚠️git pull origin main --allow-unrelated-histories<br>
+서로 관련이 없는 두 Git 히스토리를 병합할 수 있게 허용하는 옵션
+
+### git fetch origin
+
+원격 저장소의 변경 사항을 가져오지만 병합하지는 않음
+
+### git merge 브랜치명
+
+현재 브랜치에 지정한 브랜치의 변경 사항을 병합
+
+> main 브랜치에 sub 브랜치를 머지하는 경우)
+
+main 브랜치인 상태에서 git merge sub 명령어 실행
+
+---
+
+### 기타
+
+#### 클론
+
+    git clone 깃허브주소
+
+#### gitignore가 제대로 작동되지 않을 때
+
+    1. git rm -r --cached .
+    2. git add .
+    3. git commit -m "커밋내용"
